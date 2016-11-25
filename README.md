@@ -268,4 +268,4 @@ println(s"Hello ${args(0)} !")
 
 # Thanks
 
-## [](https://github.com/alexduros/tour-of-scala)
+## [github.com/alexduros/tour-of-scala](https://github.com/alexduros/tour-of-scala)
