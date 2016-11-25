@@ -16,7 +16,7 @@ I may misunderstood scala since the beginning.
 
 # Based on a true story
 
-![](file:///Users/aduros/scala_book.png)
+![](https://images-na.ssl-images-amazon.com/images/I/51y4d3qeABL._SX377_BO1,204,203,200_.jpg)
 
 ---
 
