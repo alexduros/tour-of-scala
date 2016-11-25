@@ -255,3 +255,9 @@ println(s"Hello ${args(0)} !")
 # Tips
 
 * Always try to introspect types and methods (remember all is method)
+
+---
+
+# References
+
+* [Programming in Scala by Martin Odersky](https://www.amazon.com/Programming-Scala-Updated-2-12/dp/0981531687)
