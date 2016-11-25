@@ -138,6 +138,8 @@ Currying and implicit conversions are combined to create `implicit` parameters
 def greet(name: String)(implicit prompt: Prompt) = println(s"${prompt.pref} Hello, ${name}")
 ```
 
+---
+
 # Partial Functions
 
 It's basically a `case`, and generally refers to
@@ -151,8 +153,69 @@ def myPartialFunction: PartialFunction[A, B] = {
 
 ---
 
+# Class
+
+`class` modifier allows you to define classes.
+
+```scala
+class Number(n: Int)
+
+new Number(3)
+```
+
+* Companion Object
+
+Singleton allowing you to create shorthand
+
+```scala
+object Number {
+  def apply(n: Int) = new Number(n)
+}
+```
+
+* `sealed class`
+
+A class which cannot have any subclasses except ones in the same file.
+
+---
+
+# `case class`
+
+## Why `case` ?
+
+---
+
+# `case class`
+
+class you can `case` on it
+
+```scala
+case class MyClass(name: String)
+```
+
+* add a factory method to create references without `new` modifier
+* all parameters get a `val` and are fields
+* natural implementations of `toString`, `hashCode`, `equals`
+
+---
+
 # Pattern matching
 
+`match` is the scala `switch` version with powerful features
+
+* Wilcard patterns : `case _ =>`
+* Constant patterns: `case 5 => `
+* Variable patterns: `case myVariable => `
+
+---
+
+# Pattern matching
+
+* Constructor patterns: `case Number(x) => `
+* Tuple/Sequence patterns: `case List(0, _, _) =>`
+* Typed Pattern: `case n: Number =>`
+* Pattern guards: `case Number(x) if x.n == 0 =>`
+* Pattern overlaps: patterns are tried in order
 
 ---
 
@@ -178,50 +241,67 @@ The `Try` is a better way to expose tryable functions.
 
 # For comprehensions
 
-* use `withFilter` instead of filter
+* a shorthand and more comprehensive way to write functional expression
+* uses `map`, `flatMap`, `foreach`, `withFilter`
+
+```scala
+for {
+  p <- params            // generator
+  n = p.nam              // defintion
+  if (n.startsWith "To") // filter
+}
+```
 
 ---
 
-# Class
+# For comprehensions
 
-* `sealed class`
+You can create `for` comprehensions by extending this abstract
 
-A class which cannot have any subclasses except ones in the same file.
-
-
----
-
-# `case class`
-
-## Why `case` ?
-
-
----
-
-# `case class`
+```scala
+abstract class C[A] {
+  def map[B](f: A => B): C[B]
+  def flatMap[B](f: A => C[B]): C[B]
+  def withFilter(p: A => Boolean): C[A]
+  def foreach(b: A => Unit): Unit
+}
+```
 
 ---
 
-# Covariance, Contravariance, Non-variance
+# Type parametrization
 
+Allows you to create **generic** structure
+
+```scala
+class List[T] = { ... }
+```
+
+* Covariance `[+T]`, Contravariance `[-T]`, and NonVariance `[T]` helps you (and type checker) to check types deeply in the code.
+* Bounds `[T :< SuperType]` allows you to reduce bounds of a generic type
 
 ---
 
-# Extractors
+# Futures
 
+Simple way to thread an expression
 
----
+```scala
+def futureString(s: String): Future[String] = Future { s }
+```
 
-# Futures and concurrency
+* Example of implementation of `for` comprehensions
 
 ---
 
 # More things to look for
 
 * Placeholder syntax `(_ > 0)`
+* Covariance, Contravariance, Non-variance
 * Tail recursions
 * Akka and streams
-
+* Advanced pattern matching and extractors
+* Detailing List, Collection, and mutable strucutre
 
 ---
 
