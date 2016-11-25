@@ -263,3 +263,9 @@ println(s"Hello ${args(0)} !")
 * [Programming in Scala by Martin Odersky](https://www.amazon.com/Programming-Scala-Updated-2-12/dp/0981531687)
 * [Scala school by twitter](https://twitter.github.io/scala_school/)
 * [Official Scala lang](http://www.scala-lang.org/documentation/)
+
+---
+
+# Thanks
+
+## [](https://github.com/alexduros/tour-of-scala)
